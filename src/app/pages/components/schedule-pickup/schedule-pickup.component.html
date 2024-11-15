@@ -1,0 +1,30 @@
+<h2>Schedule a Pickup</h2>
+
+<div *ngIf="schedule && schedule.length">
+  <h3>Community Pickup Schedule</h3>
+  <ul>
+    <li *ngFor="let slot of schedule">
+      {{ slot.day }} at {{ slot.time }}
+    </li>
+  </ul>
+</div>
+
+<form (submit)="onSchedulePickup()">
+  <label>Pickup Date</label>
+  <input type="date" [(ngModel)]="pickupDate" name="pickupDate" required />
+
+  <label>Waste Types</label>
+  <div>
+    <input type="checkbox" [(ngModel)]="selectedWaste.household" name="household" /> Household Waste
+    <input type="checkbox" [(ngModel)]="selectedWaste.recyclable" name="recyclable" /> Recyclable Waste
+    <input type="checkbox" [(ngModel)]="selectedWaste.hazardous" name="hazardous" /> Hazardous Waste
+  </div>
+
+  <label>Address</label>
+  <input [(ngModel)]="address" name="address" required />
+
+  <button type="submit">Schedule Pickup</button>
+</form>
+
+<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+<p *ngIf="successMessage" style="color: green;">{{ successMessage }}</p>
