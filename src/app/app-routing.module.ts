@@ -7,12 +7,16 @@ import {LoginComponent} from "./pages/components/login/login.component";
 import {DashboardComponent} from "./pages/components/dashboard/dashboard.component"; //
 import {authGuard} from './shared/guards/auth.guard';
 import {SchedulePickupComponent} from "./pages/components/schedule-pickup/schedule-pickup.component";
+import {ReportIssueComponent} from "./pages/components/report-issue/report-issue.component";
+import {NotificationComponent} from "./pages/components/notification/notification.component";
 
 const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [authGuard]}, // Protected route
   { path: 'schedule-pickup', component: SchedulePickupComponent, canActivate: [authGuard] },
+  { path: 'report-issue', component: ReportIssueComponent, canActivate: [authGuard] }, // New Route
+  { path: 'notifications', component: NotificationComponent, canActivate: [authGuard] },
   {path: '', redirectTo: '/login', pathMatch: 'full'}, // Redirect to login by default
   {path: '**', redirectTo: '/login'} // Wildcard route for a 404 page (redirects to login)
 ];

@@ -8,8 +8,6 @@ exports.getSchedule = async (req, res) => {
     if (!communityId) {
       return res.status(400).json({ message: 'User is not associated with any community.' });
     }
-    console.log('Community ID from user:', communityId);
-
 
     const community = await Community.findById(communityId); // Fetch the community document
     if (!community) {

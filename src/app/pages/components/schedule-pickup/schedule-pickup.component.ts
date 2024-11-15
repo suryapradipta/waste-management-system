@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {PickupService} from "../../../shared/pickup/pickup.service";
+import {PickupService} from "../../../shared/services/pickup/pickup.service";
 
 @Component({
   selector: 'app-schedule-pickup',

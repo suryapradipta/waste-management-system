@@ -7,6 +7,8 @@ require('dotenv').config();
 
 const userRoutes = require('./src/routes/user.route');
 const pickupRoutes = require('./src/routes/pickup.route');
+const issueRoutes = require('./src/routes/issue.route');
+const notificationRoutes = require('./src/routes/notification.route');
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -22,5 +24,7 @@ mongoose
 
 app.use('/api/users', userRoutes);
 app.use('/api/pickups', pickupRoutes);
+app.use('/api/issues', issueRoutes);
+app.use('/api/notifications', notificationRoutes);
 
 module.exports = app;

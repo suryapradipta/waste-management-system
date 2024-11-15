@@ -1,0 +1,28 @@
+<h2>Report an Issue</h2>
+
+<form (submit)="onReportIssue()">
+  <label>Issue Type</label>
+  <select [(ngModel)]="issueType" name="issueType" required>
+    <option value="" disabled selected>Select issue type</option>
+    <option value="missed pickup">Missed Pickup</option>
+    <option value="overflowing bin">Overflowing Bin</option>
+    <option value="illegal dumping">Illegal Dumping</option>
+  </select>
+
+  <label>Location</label>
+  <input [(ngModel)]="location" name="location" required />
+
+  <label>Description</label>
+  <textarea [(ngModel)]="description" name="description" required></textarea>
+
+  <label>Additional Comments</label>
+  <textarea [(ngModel)]="additionalComments" name="additionalComments"></textarea>
+
+  <label>Photos</label>
+  <input type="file" multiple (change)="onFileSelect($event)" />
+
+  <button type="submit">Submit</button>
+</form>
+
+<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+<p *ngIf="successMessage" style="color: green;">{{ successMessage }}</p>

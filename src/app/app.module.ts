@@ -9,7 +9,10 @@ import { LoginComponent } from './pages/components/login/login.component';
 import { DashboardComponent } from './pages/components/dashboard/dashboard.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SchedulePickupComponent } from './pages/components/schedule-pickup/schedule-pickup.component';
-import {PickupService} from "./shared/pickup/pickup.service";
+
+import { ReportIssueComponent } from './pages/components/report-issue/report-issue.component';
+import { NotificationComponent } from './pages/components/notification/notification.component';
+import {PickupService} from "./shared/services/pickup/pickup.service";
 
 @NgModule({
   declarations: [
@@ -17,7 +20,9 @@ import {PickupService} from "./shared/pickup/pickup.service";
     RegisterComponent,
     LoginComponent,
     DashboardComponent,
-    SchedulePickupComponent
+    SchedulePickupComponent,
+    ReportIssueComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -25,7 +30,7 @@ import {PickupService} from "./shared/pickup/pickup.service";
     FormsModule,
     AppRoutingModule
   ],
-  providers: [PickupService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

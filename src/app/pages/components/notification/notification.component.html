@@ -1,0 +1,8 @@
+<h2>Notifications</h2>
+<ul>
+  <li *ngFor="let notification of notifications">
+    <p>{{ notification.message }}</p>
+    <small>{{ notification.sentAt | date:'short' }}</small>
+  </li>
+</ul>
+<p *ngIf="notifications.length === 0">No notifications available.</p>
