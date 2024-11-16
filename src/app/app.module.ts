@@ -13,6 +13,10 @@ import { SchedulePickupComponent } from './pages/components/schedule-pickup/sche
 import { ReportIssueComponent } from './pages/components/report-issue/report-issue.component';
 import { NotificationComponent } from './pages/components/notification/notification.component';
 import {PickupService} from "./shared/services/pickup/pickup.service";
+import { LayoutComponent } from './pages/layout/layout.component';
+import {NgOptimizedImage} from "@angular/common";
+import { ToastComponent } from './shared/components/toast/toast.component';
+import { PickupHistoryComponent } from './pages/components/pickup-history/pickup-history.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +26,18 @@ import {PickupService} from "./shared/services/pickup/pickup.service";
     DashboardComponent,
     SchedulePickupComponent,
     ReportIssueComponent,
-    NotificationComponent
+    NotificationComponent,
+    LayoutComponent,
+    ToastComponent,
+    PickupHistoryComponent
   ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    FormsModule,
-    AppRoutingModule
-  ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        FormsModule,
+        AppRoutingModule,
+        NgOptimizedImage
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

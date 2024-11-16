@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 import {AuthService} from "../../../shared/services/auth/auth.service";
+import Swal from "sweetalert2";
 
 interface PickupSchedule {
   day: string;
@@ -43,8 +44,19 @@ export class RegisterComponent {
     };
 
     this.authService.register(userData).subscribe({
-      next: (response) => alert(response.message),
-      error: (error) => alert(error.error.message)
+      next: (response) => Swal.fire({
+        position: 'top-end',
+        title: response.message,
+        icon: 'success',
+        timer: 1500,
+        showConfirmButton: false
+      }),
+      error: (error) => Swal.fire({
+        title: error.error.message,
+        icon: 'error',
+        timer: 2000,
+        showConfirmButton: false
+      })
     });
   }
 }

@@ -8,15 +8,4 @@ import {Router} from "@angular/router";
 })
 export class AppComponent {
   title = 'waste-management-system';
-
-  constructor(private router: Router) {}
-
-  isLoggedIn(): boolean {
-    return !!localStorage.getItem('token');
-  }
-
-  logout() {
-    localStorage.removeItem('token');
-    this.router.navigate(['/login']);
-  }
 }

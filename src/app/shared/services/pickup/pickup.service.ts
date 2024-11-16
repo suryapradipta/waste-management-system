@@ -25,4 +25,20 @@ export class PickupService {
   schedulePickup(pickupData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/schedule`, pickupData, {headers: this.getHeaders()});
   }
+
+  getPickupHistory(params: any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/history`, {
+      headers: this.getHeaders(),
+      params
+    });
+  }
+
+  getPickupChartData(params: any): Observable<any> {
+    return this.http.get(`${this.apiUrl}/waste-over-time`,
+      {
+        headers: this.getHeaders(),
+        params
+      });
+  }
+
 }

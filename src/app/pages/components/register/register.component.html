@@ -1,35 +1,96 @@
-<h2>Register</h2>
-<form (submit)="onRegister()">
-  <label>Full Name</label>
-  <input [(ngModel)]="fullName" name="fullName" required />
+<main class="main-content  mt-0">
+  <section>
+    <div class="page-header min-vh-100">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
+            <div
+              class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center"
+              style="background-image: url('/assets/img/illustrations/illustration-signup.jpg'); background-size: cover;">
+            </div>
+          </div>
+          <div class="col-xl-4 col-lg-5 col-md-7 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-5">
+            <div class="card card-plain">
+              <div class="card-header">
+                <h4 class="font-weight-bolder">Sign Up</h4>
+                <p class="mb-0">Enter your email and password to register</p>
+              </div>
+              <div class="card-body">
+                <form role="form" (submit)="onRegister()">
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Full Name</label>
+                    <input [(ngModel)]="fullName" name="fullName" required class="form-control">
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Contact Number</label>
+                    <input [(ngModel)]="contactNumber" name="contactNumber" required class="form-control">
+                  </div>
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Email</label>
+                    <input [(ngModel)]="email" name="email" required class="form-control">
+                  </div>
 
-  <label>Contact Number</label>
-  <input [(ngModel)]="contactNumber" name="contactNumber" required />
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Community Name</label>
+                    <input [(ngModel)]="communityName" name="communityName" required class="form-control">
+                  </div>
 
-  <label>Email</label>
-  <input [(ngModel)]="email" name="email" required type="email" />
+                  <div class="input-group input-group-outline mb-3">
+                    <label class="form-label">Residential Address</label>
+                    <input [(ngModel)]="address" name="address" required class="form-control">
+                  </div>
 
-  <label>Community Name</label>
-  <input [(ngModel)]="communityName" name="communityName" required />
+                  <div class="input-group input-group-outline mb-3">
+                    <label [ngClass]="{'d-none': role}" class="form-label">Role</label>
+                    <select [(ngModel)]="role" name="role" class="form-select form-control">
+                      <option value="user">User</option>
+                      <option value="admin">Admin</option>
+                    </select>
+                  </div>
 
-  <label>Residential Address</label>
-  <input [(ngModel)]="address" name="address" required />
 
-  <label>Role</label>
-  <select [(ngModel)]="role" name="role">
-    <option value="user">User</option>
-    <option value="admin">Admin</option>
-  </select>
+                  <label *ngIf="role === 'admin'">Pickup Schedule</label>
+                  <div *ngIf="role === 'admin'">
 
-  <label *ngIf="role === 'admin'">Pickup Schedule (Admin Only)</label>
-  <div *ngIf="role === 'admin'">
-    <input [(ngModel)]="pickupDay" placeholder="Day" name="pickupDay" />
-    <input [(ngModel)]="pickupTime" placeholder="Time" name="pickupTime" />
-    <button type="button" (click)="addPickupSchedule()">Add Schedule</button>
-    <ul>
-      <li *ngFor="let schedule of pickupSchedule">{{ schedule.day }} - {{ schedule.time }}</li>
-    </ul>
-  </div>
+                    <div class="input-group input-group-outline mb-3">
+                      <label [ngClass]="{'d-none': pickupDay}" class="form-label">Day</label>
+                      <input [(ngModel)]="pickupDay" name="pickupDay" class="form-control"/>
+                    </div>
 
-  <button type="submit">Register</button>
-</form>
+                    <div class="input-group input-group-outline mb-3">
+                      <input [(ngModel)]="pickupTime" name="pickupTime" type="time" class="form-control"/>
+                    </div>
+
+                    <button class="btn btn-outline-dark mt-4 w-100"
+                            type="button" (click)="addPickupSchedule()">Add Schedule
+                    </button>
+                    <ul>
+                      <li *ngFor="let schedule of pickupSchedule">{{ schedule.day }} - {{ schedule.time }}</li>
+                    </ul>
+                  </div>
+
+                  <div class="form-check form-check-info text-start ps-0">
+                    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked>
+                    <label class="form-check-label" for="flexCheckDefault">
+                      I agree the <a href="javascript:;" class="text-dark font-weight-bolder">Terms and Conditions</a>
+                    </label>
+                  </div>
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-lg bg-gradient-dark btn-lg w-100 mt-4 mb-0">Sign Up</button>
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                <p class="mb-2 text-sm mx-auto">
+                  Already have an account?
+                  <a routerLink="/login" class="text-primary text-gradient font-weight-bold">Sign in</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

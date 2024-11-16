@@ -1,8 +1,2 @@
-<nav>
-  <a routerLink="/register">Register</a> |
-  <a routerLink="/login" *ngIf="!isLoggedIn()">Login</a> |
-  <a routerLink="/dashboard" *ngIf="isLoggedIn()">Dashboard</a>
-  <button *ngIf="isLoggedIn()" (click)="logout()">Logout</button>
-</nav>
-
+<app-toast></app-toast>
 <router-outlet></router-outlet>

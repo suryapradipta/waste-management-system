@@ -1,0 +1,16 @@
+<div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 11">
+  <div *ngFor="let toast of toasts" class="toast fade p-2 mt-2" role="alert" aria-live="assertive" aria-atomic="true" [ngClass]="{'bg-white': toast.type !== 'info', 'bg-gradient-info': toast.type === 'info', 'show': toast.show}">
+    <div class="toast-header" [ngClass]="{'border-0': true, 'bg-transparent': toast.type === 'info'}">
+      <i class="material-symbols-rounded me-2" [ngClass]="{'text-success': toast.type === 'success', 'text-white': toast.type === 'info', 'text-warning': toast.type === 'warning', 'text-danger': toast.type === 'danger'}">
+        {{ getIcon(toast.type) }}
+      </i>
+      <span class="me-auto font-weight-bold" [ngClass]="{'text-white': toast.type === 'info', 'text-gradient text-danger': toast.type === 'danger'}">{{ toast.title }}</span>
+      <small class="text-body" [ngClass]="{'text-white': toast.type === 'info'}">{{ toast.time }}</small>
+      <i class="fas fa-times text-md ms-3 cursor-pointer" data-bs-dismiss="toast" aria-label="Close" [ngClass]="{'text-white': toast.type === 'info'}" (click)="closeToast(toast)"></i>
+    </div>
+    <hr class="horizontal dark m-0" [ngClass]="{'light': toast.type === 'info'}">
+    <div class="toast-body" [ngClass]="{'text-white': toast.type === 'info'}">
+      {{ toast.message }}
+    </div>
+  </div>
+</div>
