@@ -11,6 +11,9 @@ import {ReportIssueComponent} from "./pages/components/report-issue/report-issue
 import {NotificationComponent} from "./pages/components/notification/notification.component";
 import {LayoutComponent} from "./pages/layout/layout.component";
 import {PickupHistoryComponent} from "./pages/components/pickup-history/pickup-history.component";
+import {
+  BroadcastAnnouncementComponent
+} from "./pages/components/broadcast-announcement/broadcast-announcement.component";
 
 const routes: Routes = [
   {
@@ -22,6 +25,8 @@ const routes: Routes = [
       {path: 'report-issue', component: ReportIssueComponent, canActivate: [authGuard]}, // New Route
       {path: 'notifications', component: NotificationComponent, canActivate: [authGuard]},
       {path: 'pickup-history', component: PickupHistoryComponent, canActivate: [authGuard]},
+      {path: 'broadcast-announcement', component: BroadcastAnnouncementComponent, canActivate: [authGuard]},
+
     ]
   },
   {path: 'register', component: RegisterComponent},

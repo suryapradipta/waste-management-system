@@ -20,4 +20,13 @@ export class NotificationService {
   getNotifications(): Observable<any> {
     return this.http.get(this.apiUrl, {headers: this.getHeaders()});
   }
+
+  markAsRead(notificationId: string): Observable<any> {
+    return this.http.patch(`${this.apiUrl}/${notificationId}/read`, {}, { headers: this.getHeaders() });
+  }
+
+  // Broadcast an announcement (Admin only)
+  broadcastAnnouncement(data: { message: string }): Observable<any> {
+    return this.http.post(`${this.apiUrl}/broadcast`, data, { headers: this.getHeaders() });
+  }
 }

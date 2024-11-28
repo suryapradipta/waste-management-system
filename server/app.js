@@ -9,6 +9,7 @@ const userRoutes = require('./src/routes/user.route');
 const pickupRoutes = require('./src/routes/pickup.route');
 const issueRoutes = require('./src/routes/issue.route');
 const notificationRoutes = require('./src/routes/notification.route');
+const { schedulePickupReminders } = require('./src/controllers/notification.scheduler');
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -22,6 +23,7 @@ mongoose
     console.log('Connection failed');
   });
 
+schedulePickupReminders();
 app.use('/api/users', userRoutes);
 app.use('/api/pickups', pickupRoutes);
 app.use('/api/issues', issueRoutes);

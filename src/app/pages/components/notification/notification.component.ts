@@ -9,7 +9,8 @@ import {NotificationService} from "../../../shared/services/notification/notific
 export class NotificationComponent implements OnInit {
   notifications: any[] = [];
 
-  constructor(private notificationService: NotificationService) {}
+  constructor(private notificationService: NotificationService) {
+  }
 
   ngOnInit() {
     this.fetchNotifications();
@@ -22,6 +23,19 @@ export class NotificationComponent implements OnInit {
       },
       error: (error) => {
         console.error('Error fetching notifications:', error);
+      }
+    });
+  }
+
+  markAsRead(notificationId: string) {
+    this.notificationService.markAsRead(notificationId).subscribe({
+      next: () => {
+        this.notifications = this.notifications.map((notification) =>
+          notification._id === notificationId ? {...notification, isRead: true} : notification
+        );
+      },
+      error: (error) => {
+        console.error('Error marking notification as read:', error);
       }
     });
   }

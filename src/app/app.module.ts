@@ -17,6 +17,7 @@ import { LayoutComponent } from './pages/layout/layout.component';
 import {NgOptimizedImage} from "@angular/common";
 import { ToastComponent } from './shared/components/toast/toast.component';
 import { PickupHistoryComponent } from './pages/components/pickup-history/pickup-history.component';
+import { BroadcastAnnouncementComponent } from './pages/components/broadcast-announcement/broadcast-announcement.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { PickupHistoryComponent } from './pages/components/pickup-history/pickup
     NotificationComponent,
     LayoutComponent,
     ToastComponent,
-    PickupHistoryComponent
+    PickupHistoryComponent,
+    BroadcastAnnouncementComponent
   ],
     imports: [
         BrowserModule,
