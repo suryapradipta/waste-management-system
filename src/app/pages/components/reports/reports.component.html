@@ -1,0 +1,61 @@
+<h2>Generate Reports</h2>
+
+<!-- Filters -->
+<form (submit)="onGenerateReport()">
+  <label>Report Type</label>
+  <select [(ngModel)]="filters.reportType" name="reportType" required>
+    <option value="pickup_statistics">Pickup Statistics</option>
+    <option value="issues_reported">Issues Reported</option>
+    <option value="recycling_rates">Recycling Rates</option>
+  </select>
+
+  <label>Start Date</label>
+  <input type="date" [(ngModel)]="filters.startDate" name="startDate" />
+
+  <label>End Date</label>
+  <input type="date" [(ngModel)]="filters.endDate" name="endDate" />
+
+  <label>Waste Type</label>
+  <select [(ngModel)]="filters.wasteType" name="wasteType">
+    <option value="">All</option>
+    <option value="household">Household Waste</option>
+    <option value="recyclable">Recyclable Waste</option>
+    <option value="hazardous">Hazardous Waste</option>
+  </select>
+
+  <button type="submit">Generate Report</button>
+</form>
+
+<!-- Report Results -->
+<div *ngIf="reportData">
+  <h3>{{ reportTitle }}</h3>
+
+  <!-- Graph -->
+  <canvas id="reportGraph"></canvas>
+
+  <!-- Table -->
+  <table *ngIf="reportData && Array.isArray(reportData)">
+    <thead>
+    <tr>
+      <th *ngIf="filters.reportType === 'pickup_statistics'">Waste Type</th>
+      <th *ngIf="filters.reportType === 'issues_reported'">Issue Type</th>
+      <th>Count</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let item of reportData">
+      <td>{{ item.wasteType || item.issueType }}</td>
+      <td>{{ item.count }}</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <!-- Recycling Rates -->
+  <div *ngIf="reportData.recyclingRate !== undefined">
+    <p>Total Waste Collected: {{ reportData.totalCount }}</p>
+    <p>Recyclable Waste: {{ reportData.recyclableCount }}</p>
+    <p>Recycling Rate: {{ reportData.recyclingRate.toFixed(2) }}%</p>
+  </div>
+</div>
+
+<p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>

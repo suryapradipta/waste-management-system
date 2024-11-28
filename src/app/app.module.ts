@@ -18,6 +18,7 @@ import {NgOptimizedImage} from "@angular/common";
 import { ToastComponent } from './shared/components/toast/toast.component';
 import { PickupHistoryComponent } from './pages/components/pickup-history/pickup-history.component';
 import { BroadcastAnnouncementComponent } from './pages/components/broadcast-announcement/broadcast-announcement.component';
+import { ReportsComponent } from './pages/components/reports/reports.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { BroadcastAnnouncementComponent } from './pages/components/broadcast-ann
     LayoutComponent,
     ToastComponent,
     PickupHistoryComponent,
-    BroadcastAnnouncementComponent
+    BroadcastAnnouncementComponent,
+    ReportsComponent
   ],
     imports: [
         BrowserModule,

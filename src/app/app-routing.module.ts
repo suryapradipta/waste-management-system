@@ -14,6 +14,7 @@ import {PickupHistoryComponent} from "./pages/components/pickup-history/pickup-h
 import {
   BroadcastAnnouncementComponent
 } from "./pages/components/broadcast-announcement/broadcast-announcement.component";
+import {ReportsComponent} from "./pages/components/reports/reports.component";
 
 const routes: Routes = [
   {
@@ -26,6 +27,8 @@ const routes: Routes = [
       {path: 'notifications', component: NotificationComponent, canActivate: [authGuard]},
       {path: 'pickup-history', component: PickupHistoryComponent, canActivate: [authGuard]},
       {path: 'broadcast-announcement', component: BroadcastAnnouncementComponent, canActivate: [authGuard]},
+      {path: 'reports', component: ReportsComponent, canActivate: [authGuard]},
+
 
     ]
   },
