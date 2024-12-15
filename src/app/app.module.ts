@@ -19,6 +19,7 @@ import { ToastComponent } from './shared/components/toast/toast.component';
 import { PickupHistoryComponent } from './pages/components/pickup-history/pickup-history.component';
 import { BroadcastAnnouncementComponent } from './pages/components/broadcast-announcement/broadcast-announcement.component';
 import { ReportsComponent } from './pages/components/reports/reports.component';
+import { AlertComponent } from './shared/components/alert/alert.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { ReportsComponent } from './pages/components/reports/reports.component';
     ToastComponent,
     PickupHistoryComponent,
     BroadcastAnnouncementComponent,
-    ReportsComponent
+    ReportsComponent,
+    AlertComponent
   ],
     imports: [
         BrowserModule,

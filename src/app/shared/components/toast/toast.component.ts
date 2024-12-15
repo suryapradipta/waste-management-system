@@ -1,23 +1,18 @@
 import {Component, OnInit} from '@angular/core';
 import {ToastService} from "../../services/toast/toast.service";
+import {Toast} from "../../interface/toast";
 
-interface Toast {
-  title: string;
-  message: string;
-  time: string;
-  show: boolean;
-  type: 'success' | 'info' | 'warning' | 'danger';
-}
 
 @Component({
   selector: 'app-toast',
   templateUrl: './toast.component.html',
   styleUrls: ['./toast.component.css']
 })
-export class ToastComponent implements OnInit{
+export class ToastComponent implements OnInit {
   toasts: Toast[] = [];
 
-  constructor(private toastService: ToastService) {}
+  constructor(private toastService: ToastService) {
+  }
 
   ngOnInit() {
     this.toastService.toasts$.subscribe(toast => {
@@ -32,11 +27,16 @@ export class ToastComponent implements OnInit{
 
   getIcon(type: 'success' | 'info' | 'warning' | 'danger'): string {
     switch (type) {
-      case 'success': return 'check';
-      case 'info': return 'notifications';
-      case 'warning': return 'travel_explore';
-      case 'danger': return 'campaign';
-      default: return '';
+      case 'success':
+        return 'check';
+      case 'info':
+        return 'notifications';
+      case 'warning':
+        return 'travel_explore';
+      case 'danger':
+        return 'campaign';
+      default:
+        return '';
     }
   }
 }

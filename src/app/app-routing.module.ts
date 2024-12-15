@@ -17,6 +17,7 @@ import {
 import {ReportsComponent} from "./pages/components/reports/reports.component";
 
 const routes: Routes = [
+  {path: '', redirectTo: '/login', pathMatch: 'full'}, // Redirect to login by default
   {
     path: '',
     component: LayoutComponent,
@@ -34,7 +35,7 @@ const routes: Routes = [
   },
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
-  {path: '', redirectTo: '/login', pathMatch: 'full'}, // Redirect to login by default
+
   {path: '**', redirectTo: '/login'}, // Wildcard route for a 404 page (redirects to login)
 
 
