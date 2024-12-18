@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './pages/components/register/register.component';
@@ -20,29 +20,22 @@ import { PickupHistoryComponent } from './pages/components/pickup-history/pickup
 import { BroadcastAnnouncementComponent } from './pages/components/broadcast-announcement/broadcast-announcement.component';
 import { ReportsComponent } from './pages/components/reports/reports.component';
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    RegisterComponent,
-    LoginComponent,
-    DashboardComponent,
-    SchedulePickupComponent,
-    ReportIssueComponent,
-    NotificationComponent,
-    LayoutComponent,
-    ToastComponent,
-    PickupHistoryComponent,
-    BroadcastAnnouncementComponent,
-    ReportsComponent
-  ],
-    imports: [
-        BrowserModule,
-        HttpClientModule,
+@NgModule({ declarations: [
+        AppComponent,
+        RegisterComponent,
+        LoginComponent,
+        DashboardComponent,
+        SchedulePickupComponent,
+        ReportIssueComponent,
+        NotificationComponent,
+        LayoutComponent,
+        ToastComponent,
+        PickupHistoryComponent,
+        BroadcastAnnouncementComponent,
+        ReportsComponent
+    ],
+    bootstrap: [AppComponent], imports: [BrowserModule,
         FormsModule,
         AppRoutingModule,
-        NgOptimizedImage
-    ],
-  providers: [],
-  bootstrap: [AppComponent]
-})
+        NgOptimizedImage], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
