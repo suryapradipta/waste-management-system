@@ -3,9 +3,10 @@ import {ReportService} from "../../../shared/services/report/report.service";
 import {Chart} from "chart.js";
 
 @Component({
-  selector: 'app-reports',
-  templateUrl: './reports.component.html',
-  styleUrls: ['./reports.component.css']
+    selector: 'app-reports',
+    templateUrl: './reports.component.html',
+    styleUrls: ['./reports.component.css'],
+    standalone: false
 })
 export class ReportsComponent {
   filters = { reportType: '', startDate: '', endDate: '', wasteType: '' };

@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {NotificationService} from "../../../shared/services/notification/notification.service";
 
 @Component({
-  selector: 'app-notification',
-  templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.css']
+    selector: 'app-notification',
+    templateUrl: './notification.component.html',
+    styleUrls: ['./notification.component.css'],
+    standalone: false
 })
 export class NotificationComponent implements OnInit {
   notifications: any[] = [];

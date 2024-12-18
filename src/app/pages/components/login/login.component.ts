@@ -5,9 +5,10 @@ import Swal from "sweetalert2";
 import {ToastService} from "../../../shared/services/toast/toast.service";
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css'],
+    standalone: false
 })
 export class LoginComponent {
   email = '';

@@ -2,9 +2,10 @@ import { Component } from '@angular/core';
 import {IssueService} from "../../../shared/services/issue/issue.service";
 
 @Component({
-  selector: 'app-report-issue',
-  templateUrl: './report-issue.component.html',
-  styleUrls: ['./report-issue.component.css']
+    selector: 'app-report-issue',
+    templateUrl: './report-issue.component.html',
+    styleUrls: ['./report-issue.component.css'],
+    standalone: false
 })
 export class ReportIssueComponent {
   issueType: string = '';

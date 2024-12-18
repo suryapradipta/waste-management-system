@@ -2,9 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {PickupService} from "../../../shared/services/pickup/pickup.service";
 
 @Component({
-  selector: 'app-schedule-pickup',
-  templateUrl: './schedule-pickup.component.html',
-  styleUrls: ['./schedule-pickup.component.css']
+    selector: 'app-schedule-pickup',
+    templateUrl: './schedule-pickup.component.html',
+    styleUrls: ['./schedule-pickup.component.css'],
+    standalone: false
 })
 export class SchedulePickupComponent implements OnInit {
   schedule: any[] = [];

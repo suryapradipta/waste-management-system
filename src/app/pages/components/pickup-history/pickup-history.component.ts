@@ -4,9 +4,10 @@ import {Chart, registerables} from 'chart.js';
 import 'chartjs-adapter-date-fns';
 
 @Component({
-  selector: 'app-pickup-history',
-  templateUrl: './pickup-history.component.html',
-  styleUrls: ['./pickup-history.component.css']
+    selector: 'app-pickup-history',
+    templateUrl: './pickup-history.component.html',
+    styleUrls: ['./pickup-history.component.css'],
+    standalone: false
 })
 export class PickupHistoryComponent implements OnInit {
   private chart: Chart | undefined;
